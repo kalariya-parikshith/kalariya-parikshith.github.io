@@ -1,0 +1,30 @@
+html{
+	background: url("../images/ev-232339-unsplash.jpg") no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+nav{
+	background-color: black;
+}
+ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+li{
+	float: left;
+}
+li a {
+	display: block;
+	padding: 10px 10px;
+	text-decoration: none;
+	text-align: center;
+	font-family: "Trebuchet MS";
+	color: black;
+}
+li a:hover{
+	background-color: white;
+	color: black;
+}
