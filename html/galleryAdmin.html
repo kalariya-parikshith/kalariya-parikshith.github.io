@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gallery Admin</title>
+	<link rel="stylesheet" type="text/css" href="../css/galleryAdmin.css">
+	<link href="https://fonts.googleapis.com/css?family=Aleo" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower|Lobster|Pacifico" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Charm" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script:700" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../json/ImgData.json"></script>
+</head>
+<body>
+	<nav class="navclass">
+		<ul>
+			<li><a href="../index.html">Home</a></li>
+			<li><a href="#aboutme">About Me</a></li>
+			<li><a href="#contact">Contact Me</a></li>
+			<li><a href="#gallery">Gallery</a></li>
+			<li><a href="html/galleryAdmin.html">Gallery Admin</a></li>
+		</ul>
+	</nav>
+	<menu id="ctxMenu" class="point" >
+      <menu id="editId" title="Edit" class="options edit" onclick="editPressed()">
+      </menu>
+      <menu id="deleteId" title="Delete" class="options delete" onclick="deletePressed()">
+      </menu>
+    </menu>
+	<div id="gallery">
+		<div>
+			<div class="heading-tab">
+				Gallery
+			</div>
+			<div class="add-new-image-div">
+				<p class="add-new-image-button">Add New Image</p>
+			</div>
+			<div id="img-container">
+				
+			</div>
+		</div>
+	</div>
+	<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2><center>Edit</center></h2>
+    </div>
+    <br>
+    <div class="modal-body">
+      <center><form>
+      	<label>Image URL</label>
+        <br>
+        <input type="text" id="imageUrlId" name="imageUrl">
+        <br>
+        <label>Name</label>
+        <br>
+        <input type="text" id="imageNameId" name="imageName">
+        <br>
+        <label>Information</label>
+        <br>
+        <input type="text" id="imageInfoId" name="imageInfo">
+        <br>
+        <label>Uploaded Date</label>
+        <br>
+        <input type="date" id="imageUploadedDateId" name="imageUploadedDate">
+      </form></center>
+    </div>
+    <br>
+    <center><p class="submitEdit" onclick="submitEditButton()">submit</p></center>
+  </div>
+
+</div>
+</body>
+<script type="text/javascript" src="../js/galleryAdmin.js"></script>
+</html>
