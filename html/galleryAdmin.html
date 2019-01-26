@@ -14,66 +14,74 @@
 	<script type="text/javascript" src="../json/ImgData.json"></script>
 </head>
 <body>
-	<nav class="navclass">
+	<nav id="navigation">
 		<ul>
 			<li><a href="../index.html">Home</a></li>
-			<li><a href="#aboutme">About Me</a></li>
+			<li><a href="#aboutme">	About Me</a></li>
 			<li><a href="#contact">Contact Me</a></li>
 			<li><a href="#gallery">Gallery</a></li>
-			<li><a href="html/galleryAdmin.html">Gallery Admin</a></li>
+			<li><a href="#">Gallery Admin</a></li>
 		</ul>
 	</nav>
-	<menu id="ctxMenu" class="point" >
-      <menu id="editId" title="Edit" class="options edit" onclick="editPressed()">
-      </menu>
-      <menu id="deleteId" title="Delete" class="options delete" onclick="deletePressed()">
-      </menu>
+
+	<menu id="contextMenu" class="point" >
+      <menu id="editMenuOption" 	title="Edit" 	class="menu_options edit_menu_option"></menu>
+      <menu id="deleteMenuOption" 	title="Delete" 	class="menu_options delete_menu_option"></menu>
     </menu>
-	<div id="gallery">
+
+	<div id="galleryDiv">
 		<div>
-			<div class="heading-tab">
-				Gallery
+			<div class="gallery_heading">Gallery</div>
+			<div class="add_new_image_div">
+				<button id="addNewImageButton">Add New Image</button>
 			</div>
-			<div class="add-new-image-div">
-				<p class="add-new-image-button">Add New Image</p>
-			</div>
-			<div id="img-container">
+			<div id="imagesContainer">
 				
 			</div>
 		</div>
 	</div>
-	<div id="myModal" class="modal">
 
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2><center>Edit</center></h2>
-    </div>
-    <br>
-    <div class="modal-body">
-      <center><form>
-      	<label>Image URL</label>
-        <br>
-        <input type="text" id="imageUrlId" name="imageUrl">
-        <br>
-        <label>Name</label>
-        <br>
-        <input type="text" id="imageNameId" name="imageName">
-        <br>
-        <label>Information</label>
-        <br>
-        <input type="text" id="imageInfoId" name="imageInfo">
-        <br>
-        <label>Uploaded Date</label>
-        <br>
-        <input type="date" id="imageUploadedDateId" name="imageUploadedDate">
-      </form></center>
-    </div>
-    <br>
-    <center><p class="submitEdit" onclick="submitEditButton()">submit</p></center>
-  </div>
-
-</div>
+	<div id="addOrEditDialogueBoxId" class="add_or_edit_dialogue_box_class">
+  		<div class="add_or_edit_dialogue_box_content">
+    		<div class="add_or_edit_dialogue_box_header">
+      			<span id="dialogueBoxClose">&times;</span>
+      			<h2 id="dialogueBoxHeaderContent"></h2>
+    		</div>
+    		<br>
+    		<div class="add_or_edit_dialogue_box_body">
+      			<center>
+      				<form>
+      					<label>Image URL</label>
+        				<br>
+        				<input type="text" id="imageUrlId" name="imageUrl">
+        				<br>
+        				<span id="urlInvalid">*URL invalid</span>
+        				<br>
+        				<label>Name</label>
+        				<br>
+        				<input type="text" id="imageNameId" name="imageName">
+        				<br>
+        				<span id="nameEmpty">*Name cannot be empty</span>
+        				<br>
+        				<label>Information</label>
+        				<br>
+        				<input type="text" id="imageInfoId" name="imageInfo">
+        				<br>
+        				<br>
+        				<label>Uploaded Date</label>
+        				<br>
+        				<input type="date" id="imageUploadedDateId" name="imageUploadedDate">
+        				<br>
+        				<span id="uploadDateInvalid">*Uploaded Date invalid</span>
+      				</form>
+      			</center>
+    		</div>
+    		<br>
+    		<center>
+    			<p id="dialogueBoxSubmitButton">Submit</p>
+    		</center>
+  		</div>
+	</div>
 </body>
 <script type="text/javascript" src="../js/galleryAdmin.js"></script>
 </html>

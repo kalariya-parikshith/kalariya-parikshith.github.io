@@ -1,12 +1,12 @@
-#ctxMenu{
+#contextMenu{
     display:none;
     z-index:100;
 }
 .point{
-  width:1px;
-  height:1px;
+  width:0px;
+  height:0px;
 }
-.options{
+.menu_options{
   display:block;
   background-color:white;
   border: 0;
@@ -14,11 +14,11 @@
   font-size: 20px;
   font-family: 'Source Sans Pro', sans-serif;
 }
-.edit{
+.edit_menu_option{
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
-.delete{
+.delete_menu_option{
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
@@ -75,18 +75,13 @@ nav{
 	top:0;
 	position: fixed;
 }
-.navclass{
-
-}
 ul{
 	padding: 0;
 	margin: 0;
 	list-style-type: none;
 	overflow: auto;
 }
-li{
-	float: left;
-}
+li{ float: left; }
 li a {
 	display: block;
 	padding: 10px 10px;
@@ -99,7 +94,7 @@ li a:hover{
 	background-color: white;
 	color: black;
 }
-#gallery {
+#galleryDiv {
 	width: 100%;
 	overflow: auto;
 	background-color: #fff;
@@ -107,17 +102,17 @@ li a:hover{
 	padding-bottom: 50px;
 }
 
-#img-container{
+#imagesContainer {
 	width: 100%;
 	overflow: auto;
 }
-.banner-img{
+.imagesContainers_image {
 	width: 25%;
 	height: 25%;
 	margin: 0% 0% 4% 5%;
 	border: 5px solid black;
 }
-.heading-tab{
+.gallery_heading {
 	height: 10%;
 	background-color: #fff;
 	margin-top: 0%;
@@ -137,14 +132,14 @@ li a:hover{
 	border-bottom-color: red;
 	border-bottom-style: solid;
 }
-.add-new-image-div{
+.add_new_image_div {
 	width: 100%;
 	height: 5%;
 	text-align: center;
 	margin: 0;
 	padding: 0;
 }
-.add-new-image-button{
+#addNewImageButton {
 	margin-top: 2%;
 	margin-bottom: 2%;
 	background-color: white;
@@ -154,64 +149,63 @@ li a:hover{
 	padding: 0.5% 0.5% 0.5% 0.5%;
 	border-radius: 5px;
 }
-.add-new-image-button:hover {
+#addNewImageButton:hover {
 	background-color: blue;
 	color: white;
 	cursor: pointer;
 }
 
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+.add_or_edit_dialogue_box_class {
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content */
-.modal-content {
+.add_or_edit_dialogue_box_content {
   position: fixed;
   bottom: 0;
   background-color: #fefefe;
   width: 100%;
 }
 
-/* The Close Button */
-.close {
+#dialogueBoxClose {
   color: white;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+#dialogueBoxClose:hover, #dialogueBoxClose:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
 }
 
-.modal-header {
+.add_or_edit_dialogue_box_header {
   padding: 1px 6px;
   background-color: #5cb85c;
   color: white;
+  text-align: center;
 }
 
-.modal-body {padding: 2px 16px;}
+.add_or_edit_dialogue_box_body {padding: 2px 16px; }
 
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
+#urlInvalid, #nameEmpty, #uploadDateInvalid {
+	display: none;
+	color: red;
+	font-size: 15px;
 }
-.submitEdit{
+
+#dialogueBoxSubmitButton {
 	width:10%;
-    heigth:10px;
+    heigth: 10px;
     background-color: blue;
     padding: 10px;
     border-radius: 3px;

@@ -1,96 +1,190 @@
+var data 	= JSON.parse(data);
+var images 	= data[0].images;
+
+var imageIdSelected = null;
+
+var navigationElement				= document.getElementById('navigation');
+var editMenuOptionElement 			= document.getElementById('editMenuOption');
+var imagesContainerElement 			= document.getElementById('imagesContainer');
+var deleteMenuOptionElement 		= document.getElementById('deleteMenuOption');
+var dialogueBoxCloseElement 		= document.getElementById('dialogueBoxClose');
+var addNewImageButtonElement		= document.getElementById('addNewImageButton');
+var addOrEditDialogueBoxElement 	= document.getElementById('addOrEditDialogueBoxId');
+var dialogueBoxSubmitButtonElement 	= document.getElementById('dialogueBoxSubmitButton');
+var dialogueBoxHeaderContentElement = document.getElementById('dialogueBoxHeaderContent');
+
 window.addEventListener("scroll", function(event) {
     if (window.scrollY > 100) {
-    	document.getElementsByClassName("navclass")[0].style.backgroundColor="white";
+    	navigationElement.style.backgroundColor="white";
     } else {
-    	document.getElementsByClassName("navclass")[0].style.backgroundColor=null;	
+    	navigationElement.style.backgroundColor=null;	
     }
     
 }, false);
-var data = JSON.parse(data);
-data[0].images.forEach( function(obj) {
-  	var img = new Image();
-	img.src = obj.url;
-	img.setAttribute("class", "banner-img");
-	img.setAttribute("alt", "effy");
-	img.id=obj.imageId;
-	console.log(obj.imageId);
-	document.getElementById("img-container").appendChild(img);
-});
-var imageIdSelected = null;
-var parent = document.getElementById('img-container');
-parent.addEventListener('contextmenu', function (event) {
-    if (event.target.tagName === 'IMG') {
-        event.preventDefault();
-        imageIdSelected = event.target.id;
-	    var ctxMenu = document.getElementById("ctxMenu");
-	    ctxMenu.style.display = "block";
-	    ctxMenu.style.left = (event.pageX - 10)+"px";
-	    ctxMenu.style.top = (event.pageY - 10)+"px";
-    }
-}, false);
 
-parent.addEventListener('click', function (event) {
-    var ctxMenu = document.getElementById("ctxMenu");
-    ctxMenu.style.display = "";
-    ctxMenu.style.left = "";
-    ctxMenu.style.top = "";
-}, false);
-
-var modal = document.getElementById('myModal');
-function editPressed() {
-	modal.style.display = "block";
-	var ctxMenu = document.getElementById("ctxMenu");
-    ctxMenu.style.display = "";
-    ctxMenu.style.left = "";
-    ctxMenu.style.top = "";
-    data[0].images.forEach( function(obj) {
-  		if(obj.imageId == imageIdSelected) {
-  			document.getElementById('imageUrlId').value = obj.url;
-  			document.getElementById('imageNameId').value = obj.name;
-  			document.getElementById('imageInfoId').value = obj.info;
-  			document.getElementById('imageUploadedDateId').value = obj.upload_date;
-  		}
+loadImages = function() {
+	imagesContainer.innerHTML = "";
+	images.forEach( function(imageObj) {
+		var img = new Image();
+		img.id  = imageObj.imageId;
+		img.src = imageObj.url;
+		img.className = "imagesContainers_image";
+		imagesContainer.appendChild(img);
 	});
 }
+loadImages();
 
-function deletePressed() {
-	console.log(data[0].images);
+getNewImageId = function() {
+	var maxId = 0;
+	images.forEach( function(obj) {
+		if(maxId < parseInt(obj.imageId))
+			maxId = parseInt(obj.imageId);
+	});
+	return maxId + 1;
+}
+
+getCurrentDate_YYYYMMDD = function() {
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth() + 1; 
+	var yyyy = today.getFullYear();
+	if (dd < 10) {
+  		dd = '0' + dd;
+	} 
+	if (mm < 10) {
+  		mm = '0' + mm;
+	} 
+	return yyyy + '-' + mm + '-' + dd;
+}
+
+isDateValid = function() {
+	var formDate = new Date(document.getElementById('imageUploadedDateId').value);
+	var todayDate = new Date();
+	if(formDate.getFullYear() < todayDate.getFullYear()) {
+		return true;
+	} else if(formDate.getMonth() < todayDate.getMonth()) {
+		return true;
+	} else if(formDate.getDate() <= todayDate.getDate()) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+hideInvalidValidationMessage = function() {
+	document.getElementById('urlInvalid').style.display = 'none';
+	document.getElementById('nameEmpty').style.display = 'none';
+	document.getElementById('uploadDateInvalid').style.display = 'none';
+}
+
+editMenuOptionElement.onclick = function() {
+	addOrEditDialogueBoxElement.style.display = "block";
+	dialogueBoxHeaderContentElement.innerHTML = "Edit";
+	var contextMenu = document.getElementById("contextMenu");
+	contextMenu.style.display = "";
+	contextMenu.style.left = "";
+	contextMenu.style.top = "";
+	data[0].images.forEach( function(obj) {
+		if(obj.imageId == imageIdSelected) {
+			document.getElementById('imageUrlId').value  = obj.url;
+			document.getElementById('imageNameId').value = obj.name;
+			document.getElementById('imageInfoId').value = obj.info;
+			document.getElementById('imageUploadedDateId').value = obj.upload_date;
+		}
+	});
+};
+
+imagesContainerElement.onclick = function() {
+	var contextMenu = document.getElementById("contextMenu");
+	contextMenu.style.display = "";
+	contextMenu.style.left = "";
+	contextMenu.style.top = "";
+};
+
+imagesContainerElement.addEventListener('contextmenu', function (event) {
+	if (event.target.tagName === 'IMG') {
+		event.preventDefault();
+		imageIdSelected = event.target.id;
+		console.log(imageIdSelected);
+		var contextMenu = document.getElementById("contextMenu");
+		contextMenu.style.display = "block";
+		contextMenu.style.left = (event.pageX - 10)+"px";
+		contextMenu.style.top = (event.pageY - 10)+"px";
+	}
+}, false);
+
+deleteMenuOptionElement.onclick = function() {
 	var index=0;
-	var ctxMenu = document.getElementById("ctxMenu");
-    ctxMenu.style.display = "";
-    ctxMenu.style.left = "";
-    ctxMenu.style.top = "";
+	var contextMenu = document.getElementById("contextMenu");
+	contextMenu.style.display = "";
+	contextMenu.style.left = "";
+	contextMenu.style.top = "";
 	data[0].images.forEach( function(obj){
 		if(obj.imageId == imageIdSelected){
 			data[0].images.splice(index,1);
-			document.getElementById('img-container').innerHTML = "";
+			imagesContainer.innerHTML = "";
 			data[0].images.forEach( function(obj) {
-			  	var img = new Image();
+				var img = new Image();
 				img.src = obj.url;
-				img.setAttribute("class", "banner-img");
+				img.setAttribute("class", "imagesContainers_image");
 				img.setAttribute("alt", "effy");
 				img.id=obj.imageId;
 				console.log(obj.imageId);
-				document.getElementById("img-container").appendChild(img);
+				document.getElementById("imagesContainer").appendChild(img);
 			});
 		}
 		index++;
 	});
+};
+
+dialogueBoxCloseElement.onclick = function() {
+	addOrEditDialogueBoxElement.style.display = "none";
+	hideInvalidValidationMessage();
 }
 
-var span = document.getElementsByClassName("close")[0];
-span.onclick = function() {
-  modal.style.display = "none";
+addNewImageButtonElement.onclick = function() {
+	document.getElementById('imageUrlId').value		= "";
+	document.getElementById('imageNameId').value 	= "";
+	document.getElementById('imageInfoId').value 	= "";
+	document.getElementById('imageUploadedDateId').value = getCurrentDate_YYYYMMDD();
+	dialogueBoxHeaderContentElement.innerHTML = "Add New Image";
+	addOrEditDialogueBoxElement.style.display = "block";
 }
 
-function submitEditButton() {
-	modal.style.display = "none";
-	data[0].images.forEach( function(obj) {
-		if (obj.imageId == imageIdSelected) {
-		  	obj.url = document.getElementById('imageUrlId').value;
-		  	obj.info = document.getElementById('imageInfoId').value;
-		  	obj.upload_date = document.getElementById('imageUploadedDateId').value;
-		  	modal.style.display = "none";
-	  	}
-	});
+dialogueBoxSubmitButtonElement.onclick = function() {
+	hideInvalidValidationMessage();
+	var urlPattern = /^((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$/;
+	if(!urlPattern.test(document.getElementById('imageUrlId').value)) {
+		document.getElementById('urlInvalid').style.display = 'block';
+		return;
+	} else if(document.getElementById('imageNameId').value == '') {
+		document.getElementById('nameEmpty').style.display = 'block';
+		return;
+	} else if(!isDateValid()) {
+		document.getElementById('uploadDateInvalid').style.display = 'block';
+		return;
+	}
+	if (dialogueBoxHeaderContentElement.innerHTML == "Edit") {
+		addOrEditDialogueBoxElement.style.display = "none";
+		images.forEach( function(obj) {
+			if (obj.imageId == imageIdSelected) {
+				obj.url 		= document.getElementById('imageUrlId').value;
+				obj.name 		= document.getElementById('imageNameId').value;
+				obj.info 		= document.getElementById('imageInfoId').value;
+				obj.upload_date = document.getElementById('imageUploadedDateId').value;
+				addOrEditDialogueBoxElement.style.display = "none";
+			}
+		});	
+	} else if (dialogueBoxHeaderContentElement.innerHTML == "Add New Image") {
+		var newImageId 	= getNewImageId();
+		var newImageUrl = document.getElementById('imageUrlId').value;
+		var newImageName = document.getElementById('imageNameId').value;
+		var newImageInfo = document.getElementById('imageInfoId').value;
+		var newImageUploadDate = document.getElementById('imageUploadedDateId').value;
+		
+		images.push({"imageId":newImageId, "url": newImageUrl, "name":newImageName, "info":newImageInfo, "upload_date": newImageUploadDate});
+		loadImages();
+		addOrEditDialogueBoxElement.style.display = "none";
+	}
+	hideInvalidValidationMessage();
 }
