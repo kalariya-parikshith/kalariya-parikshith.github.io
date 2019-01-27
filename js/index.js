@@ -1,33 +1,59 @@
-window.addEventListener("scroll", function(event) {
-    if (window.scrollY > 100) {
-    	document.getElementsByClassName("navclass")[0].style.backgroundColor="white";
-    } else {
-    	document.getElementsByClassName("navclass")[0].style.backgroundColor=null;	
-    }
-    
-}, false);
-function validateForm(){
-	var fullname = document.getElementById('fullname').value;
-	var email 	 = document.getElementById('email').value;
-	var message  = document.getElementById('message-box').value;
-	if(fullname == ""){
-		document.getElementByClassName('name-empty')[0].style.display="inline";
-		return false;
-	} else if(email == "") {
-		document.getElementsByClassName('email-empty')[0].style.display="inline";
-		return false;
-	} else if(message == "") {
-		document.getElementsByClassName('message-empty')[0].style.display="inline";
-		return false;
-	}
-	return true;
+var imagesJson;
+
+var imagesContainerElement = document.getElementById('imagesContainer');
+
+getJsonObjectLocally = function() {
+	return JSON.parse(localStorage.getItem('imagesJson'));
 }
-var data = JSON.parse(data);
-data[0].images.forEach( function(obj) {
-  	var img = new Image();
-  	// console.log(obj.id == 1);
-	img.src = obj.url;
-	img.setAttribute("class", "banner-img");
-	img.setAttribute("alt", "effy");
-	document.getElementById("img-container").appendChild(img);
-});
+
+storeJsonObjectLocally = function() {
+	localStorage.setItem('imagesJson',JSON.stringify(imagesJson));
+}
+
+loadImages = function() {
+	if (localStorage.getItem('imagesJson') == null) {
+		imagesJson = JSON.parse(data); // retrives data from ImgData and stores in imagesJson
+		storeJsonObjectLocally();
+	} else {
+		imagesJson = getJsonObjectLocally();
+	}
+
+	imagesContainerElement.innerHTML = "";
+	imagesJson[0].images.forEach( function(imageObj) {
+		var img = new Image();
+		img.id  = imageObj.imageId;
+		img.src = imageObj.url;
+		img.className = "imagesContainers_image";
+		imagesContainer.appendChild(img);
+	});
+}
+loadImages();
+
+validateForm = function() {
+	document.getElementById('nameEmpty').style.display	="none";
+	document.getElementById('emailEmpty').style.display	="none";
+	document.getElementById('messageEmpty').style.display="none";
+	var email 		= document.getElementById('email').value.trim();
+	var fullname	= document.getElementById('fullname').value.trim();
+	var message 	= document.getElementById('messageBox').value.trim();
+	if(fullname == ""){
+		document.getElementById('nameEmpty').style.display="block";
+	} else if(email == "") {
+		document.getElementById('emailEmpty').style.display="block";
+	} else if(message == "") {
+		document.getElementById('messageEmpty').style.display="block";
+	} else {
+		alert("form submitted");
+	}
+	document.getElementById('email').value = "";
+	document.getElementById('fullname').value = "";
+	document.getElementById('messageBox').value = "";
+}
+
+window.addEventListener("scroll", function(event) {
+	if (window.scrollY > 100) {
+		document.getElementById("navigationBar").style.backgroundColor="white";
+	} else {
+		document.getElementById("navigationBar").style.backgroundColor=null;	
+	}
+}, false);

@@ -14,30 +14,28 @@
 	<script type="text/javascript" src="./json/ImgData.json"></script>
 </head>
 <body>
-	<nav class="navclass">
+	<nav id="navigationBar">
 		<ul>
 			<li><a href="index.html">Home</a></li>
-			<li><a href="#aboutme">About Me</a></li>
+			<li><a href="#aboutMe">About Me</a></li>
 			<li><a href="#contact">Contact Me</a></li>
 			<li><a href="#gallery">Gallery</a></li>
 			<li><a href="html/galleryAdmin.html">Gallery Admin</a></li>
 		</ul>
 	</nav>
 	<div id="info">
-		<div class="name">
-			<p class="thisIsMe">This is me</p>
+		<div class="info_name">
+			<p class="this_is_me">This is me</p>
 			<p class="fullname">Kalariya Parikshith</p>
 			<p>Software developer Intern at ZeMoSo Technologies</p>
 		</div>
-		<div class="imageDiv">
-			<img class="profilePic" src="images/kp.webp"/>
+		<div class="image_div">
+			<img class="profile_pic" src="https://github.com/kalariya-parikshith/kalariya-parikshith.github.io/blob/master/images/kp.webp?raw=true"/>
 		</div>
 	</div>
-	<div id="aboutme">
-		<div class="heading-tab">
-			About me
-		</div>
-		<p class="aboutme-description">	Hi! My name is kalariya parikshith. 
+	<div id="aboutMe">
+		<div class="about_me_heading">About me</div>
+		<p class="aboutme_description">	Hi! My name is kalariya parikshith. 
 			I'm 21 and I live in Hyderabad. <br>
 			I'm interested in computer science, currently in final year of my B. Tech program
 			<br>and along with it I'm also an Intern at ZeMoSo Technologies. <br>
@@ -45,39 +43,40 @@
 			I like playing volleyball and cricket the most and all the other outdoor games. <br>
 			Recently I started playing 8 ball pool. 
 			I speak Gujarati, Hindi, Telugu and English.</p>
-		<p class="kp">~kalariya parikshith</p>
+		<p class="kalariya_parikshith">~kalariya parikshith</p>
 	</div>
 	<div id="contact">
-		<div class="mail-icon-div">
-			<img class="mail-icon-class" src="images/mail.png">
+		<div class="mail_icon_div">
+			<img class="mail_icon_class" src="https://raw.githubusercontent.com/kalariya-parikshith/kalariya-parikshith.github.io/master/images/mail.png">
 		</div>
 		<i style="font-size:30px;margin-top: 20%;float: left;margin-left:2%;z-index: 2;" class="fa">&#xf0a4;</i>
-		<div class="form-div">
-			<form name="contact-form" onsubmit="return validateForm()" class="form-class" action="/backend">
+		<div class="form_div">
+			<form name="contact-form" onsubmit="validateForm();return false;" class="form_class">
 				<label>Name</label>
 				<br>
 				<input type="text" name="fullname" id="fullname" placeholder="Your name..">
-				<label class="name-empty"><br>*name field is empty</label>
+				<label id="nameEmpty"><br>*name field is empty</label>
 				<br>
 				<label>Email</label>
 				<br>
 				<input type="email" name="email" id="email" placeholder="Your email..">
-				<label class="email-empty"><br>*email field is empty</label>
+				<label id="emailEmpty"><br>*email field is empty</label>
 				<br>
 				<label>Message</label>
 				<br>
-				<textarea name="message-box" rows="3" cols="20" placeholder="Your Message.."></textarea>
-				<label class="message-empty"><br>*message field is empty</label>
+				<textarea name="message_box" id="messageBox" rows="3" cols="20" placeholder="Your Message.."></textarea>
+				<label id="messageEmpty"><br>*message field is empty</label>
 				<br>
-				<input type="submit" value="submit">
+				<input type="submit" value="Submit">
 			</form>
 		</div>
 	</div>
 	<div id="gallery">
-		<div id="img-container">
-			<div class="heading-tab">
-			Gallery
-		</div>
+		<div>
+			<div class="gallery_heading">Gallery</div>
+			<div id="imagesContainer">
+				
+			</div>
 		</div>
 	</div>
 	

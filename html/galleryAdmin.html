@@ -14,12 +14,12 @@
 	<script type="text/javascript" src="../json/ImgData.json"></script>
 </head>
 <body>
-	<nav id="navigation">
+	<nav id="navigationBar">
 		<ul>
 			<li><a href="../index.html">Home</a></li>
-			<li><a href="#aboutme">	About Me</a></li>
-			<li><a href="#contact">Contact Me</a></li>
-			<li><a href="#gallery">Gallery</a></li>
+			<li><a href="../index.html#aboutme">	About Me</a></li>
+			<li><a href="../index.html#contact">Contact Me</a></li>
+			<li><a href="../index.html#gallery">Gallery</a></li>
 			<li><a href="#">Gallery Admin</a></li>
 		</ul>
 	</nav>
@@ -50,7 +50,7 @@
     		<br>
     		<div class="add_or_edit_dialogue_box_body">
       			<center>
-      				<form>
+      				<form onsubmit="validateDialogueBoxFields();return false;">
       					<label>Image URL</label>
         				<br>
         				<input type="text" id="imageUrlId" name="imageUrl">
@@ -73,13 +73,11 @@
         				<input type="date" id="imageUploadedDateId" name="imageUploadedDate">
         				<br>
         				<span id="uploadDateInvalid">*Uploaded Date invalid</span>
+        				<br>
+        				<center><input type="submit" name="Submit" id="dialogueBoxSubmitButton"></center>
       				</form>
       			</center>
     		</div>
-    		<br>
-    		<center>
-    			<p id="dialogueBoxSubmitButton">Submit</p>
-    		</center>
   		</div>
 	</div>
 </body>

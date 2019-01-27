@@ -1,9 +1,9 @@
 html{
-	background: url("../images/ev-232339-unsplash.webp") no-repeat center center fixed; 
-  	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
+	background: url("https://github.com/kalariya-parikshith/kalariya-parikshith.github.io/blob/master/images/ev-232339-unsplash.webp?raw=true") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 body{
 	margin: 0;
@@ -14,9 +14,6 @@ nav{
 	overflow: auto;
 	top:0;
 	position: fixed;
-}
-.navclass{
-
 }
 ul{
 	padding: 0;
@@ -44,7 +41,7 @@ li a:hover{
 	overflow: auto;
 	margin-top: 100px;
 }
-.name{
+.info_name{
 	margin-left: 15%;
 	font-family: 'Aleo', serif;
 	margin-right: 0;
@@ -52,7 +49,7 @@ li a:hover{
 	float: left;
 	margin-top: 10%;
 }
-.thisIsMe{
+.this_is_me{
 	font-size: 20px;
 	padding: 0;
 	margin: 0;
@@ -64,114 +61,107 @@ li a:hover{
 	margin-bottom: 0;
 	margin-right: 0;
 }
-.imageDiv{
-	
-}
-.profilePic{
+.profile_pic{
 	float: left;
 	width: 20%;
 	margin-left: 20%;
 	border-radius: 10%;
 }
-
-.heading-tab{
-	height: 10%;
+#aboutMe{
+	margin-top: 18%;
+	background-color: #fff;
+	display: inline-block;
+	padding-top: 50px;
+	height: 500px;
+	width: 100%;
+}
+.about_me_heading {
+	height: 8%;
 	background-color: #fff;
 	margin-top: 0%;
 	text-align: center;
 	font-family: 'Aleo', serif;
 	font-size: 200%;
 	border-right:25px;
-	border-right-color: red;
+	border-right-color: #787571;
 	border-right-style: solid;
 	border-left:20px;
-	border-left-color: red;
+	border-left-color: #787571;
 	border-left-style: solid;
 	border-top:2px;
-	border-top-color: red;
+	border-top-color: #787571;
 	border-top-style: solid;
 	border-bottom:2px;
-	border-bottom-color: red;
+	border-bottom-color: #787571;
 	border-bottom-style: solid;
 }
-.aboutme-description{
+.aboutme_description{
 	text-align: center;
 	font-family: 'Satisfy', cursive;
 	font-size: 200%;
 	color:#414249;
 }
-.kp{
+.kalariya_parikshith{
 	font-family: 'Dancing Script', cursive;
 	font-size: 250%;
 	text-align: center;	
-}
-#contact, #aboutme{
-	width: 100%;
-	padding: 0;
-}
-#aboutme{
-	margin-top: 18%;
-	background-color: #fff;
-	display: inline-block;
-	padding-top: 50px;
-	height: 500px;
 }
 #contact{
 	margin-top: 0;
 	background-color: #EDEEF3;
 	height: 660px;
+	padding: 0;
 }
-.mail-icon-div{
+.mail_icon_div {
 	overflow: auto;
 	float: left;
 }
-.mail-icon-class{
+.mail_icon_class {
 	width: 35%;
 	margin-left: 50%;
 	margin-top: 40%;
 }
-
-.form-div{
+.form_div{
 	overflow: auto;
-	/*background-color: blue;*/
 }
-
-.form-class{
+.form_class {
 	margin-top: 15%;
 	margin-left: 20%;
 	margin-right: 30%;
 	padding: 5% 0% 5% 5%;
 	background-color: #fff;
 	border-radius: 5%;
+	font-family: 'Aleo', serif;
 }
-
 input[type=text], input[type=email], textarea {
-  width: 85%;
-  padding: 12px 20px;
-  margin-top: 8px;
-  margin-bottom: 10px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+	width: 85%;
+	padding: 12px 20px;
+	margin-top: 8px;
+	margin-bottom: 10px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
 }
 
 input[type=submit] {
-  width: 85%;
-  background-color: #3F4044;
-  color: white;
-  padding: 12px 20px;
-  margin-top: 8px;
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+	width: 85%;
+	background-color: #3F4044;
+	color: white;
+	padding: 12px 20px;
+	margin-top: 8px;
+	margin-bottom: 10px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-family: 'Aleo', serif;
+	font-size: 15px;
 }
 
 input[type=submit]:hover {
-  background-color: #4B4C51;
+	background-color: #4B4C51;
 }
-.name-empty, .email-empty, .message-empty {
+#nameEmpty, #emailEmpty, #messageEmpty {
 	font-size: 15px;
 	color: red;
 	display: none;
@@ -184,14 +174,34 @@ input[type=submit]:hover {
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
-
-#img-container{
+.gallery_heading {
+	height: 10%;
+	background-color: #fff;
+	margin-top: 0%;
+	margin-bottom: 5%;
+	text-align: center;
+	font-family: 'Aleo', serif;
+	font-size: 200%;
+	border-right:25px;
+	border-right-color: #787571;
+	border-right-style: solid;
+	border-left:20px;
+	border-left-color: #787571;
+	border-left-style: solid;
+	border-top:2px;
+	border-top-color: #787571;
+	border-top-style: solid;
+	border-bottom:2px;
+	border-bottom-color: #787571;
+	border-bottom-style: solid;
+}
+#imagesContainer {
 	width: 100%;
 	overflow: auto;
 }
-.banner-img{
-	width: 25%;
-	height: 25%;
-	margin: 5% 0% 0% 5%;
+.imagesContainers_image {
+	width: 350px;
+	height: 250px;
+	margin: 0% 0% 4% 5%;
 	border: 5px solid black;
 }
