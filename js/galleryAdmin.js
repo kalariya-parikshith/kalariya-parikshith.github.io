@@ -1,20 +1,20 @@
 var imagesJson;
 var imageIdSelected = null;
 
-var contextMenuElement				= document.getElementById("contextMenu");
-var editMenuOptionElement 			= document.getElementById('editMenuOption');
-var imagesContainerElement 			= document.getElementById('imagesContainer');
+var contextMenuElement			= document.getElementById("contextMenu");
+var editMenuOptionElement 		= document.getElementById('editMenuOption');
+var imagesContainerElement 		= document.getElementById('imagesContainer');
 var deleteMenuOptionElement 		= document.getElementById('deleteMenuOption');
 var dialogueBoxCloseElement 		= document.getElementById('dialogueBoxClose');
 var addNewImageButtonElement		= document.getElementById('addNewImageButton');
 var addOrEditDialogueBoxElement 	= document.getElementById('addOrEditDialogueBoxId');
 var dialogueBoxSubmitButtonElement 	= document.getElementById('dialogueBoxSubmitButton');
-var dialogueBoxHeaderContentElement = document.getElementById('dialogueBoxHeaderContent');
+var dialogueBoxHeaderContentElement	= document.getElementById('dialogueBoxHeaderContent');
 
-var imageUrlElement 				= document.getElementById('imageUrlId');
-var imageNameElement 				= document.getElementById('imageNameId');
-var imageInfoElement 				= document.getElementById('imageInfoId');
-var imageUploadedDateElement 		= document.getElementById('imageUploadedDateId');
+var imageUrlElement 		= document.getElementById('imageUrlId');
+var imageNameElement 		= document.getElementById('imageNameId');
+var imageInfoElement		= document.getElementById('imageInfoId');
+var imageUploadedDateElement	= document.getElementById('imageUploadedDateId');
 
 getJsonObjectLocally = function() {
 	return JSON.parse(localStorage.getItem('imagesJson'));
