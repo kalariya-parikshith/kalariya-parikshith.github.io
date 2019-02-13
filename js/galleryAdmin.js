@@ -173,19 +173,19 @@ validateDialogueBoxFields = function() {
 	if (dialogueBoxHeaderContentElement.innerHTML == "Edit") {
 		imagesJson[0].images.forEach( function(obj) {
 			if (obj.imageId == imageIdSelected) {
-				obj.url 		= imageUrlElement.value;
-				obj.name 		= imageNameElement.value;
-				obj.info 		= imageInfoElement.value;
+				obj.url 	= imageUrlElement.value;
+				obj.name 	= imageNameElement.value;
+				obj.info 	= imageInfoElement.value;
 				obj.upload_date = imageUploadedDateElement.value;
 				addOrEditDialogueBoxElement.style.display = "none";
 				storeJsonObjectLocally();
 			}
 		});	
 	} else if (dialogueBoxHeaderContentElement.innerHTML == "Add New Image") {
-		var newImageId 			= getNewImageId();
-		var newImageUrl 		= imageUrlElement.value;
-		var newImageName 		= imageNameElement.value;
-		var newImageInfo 		= imageInfoElement.value;
+		var newImageId 		= getNewImageId();
+		var newImageUrl 	= imageUrlElement.value;
+		var newImageName 	= imageNameElement.value;
+		var newImageInfo 	= imageInfoElement.value;
 		var newImageUploadDate 	= imageUploadedDateElement.value;
 		
 		imagesJson[0].images.push({"imageId":newImageId, "url": newImageUrl, "name":newImageName, "info":newImageInfo, "upload_date": newImageUploadDate});
