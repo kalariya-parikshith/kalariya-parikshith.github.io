@@ -30,10 +30,10 @@ loadImages = function() {
 loadImages();
 
 validateForm = function() {
-	document.getElementById('nameEmpty').style.display	="none";
-	document.getElementById('emailEmpty').style.display	="none";
-	document.getElementById('messageEmpty').style.display="none";
-	var email 		= document.getElementById('email').value.trim();
+	document.getElementById('nameEmpty').style.display = "none";
+	document.getElementById('emailEmpty').style.display = "none";
+	document.getElementById('messageEmpty').style.display = "none";
+	var email 	= document.getElementById('email').value.trim();
 	var fullname	= document.getElementById('fullname').value.trim();
 	var message 	= document.getElementById('messageBox').value.trim();
 	if(fullname == ""){
