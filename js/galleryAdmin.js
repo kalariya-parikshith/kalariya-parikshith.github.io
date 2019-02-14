@@ -1,20 +1,20 @@
 var imagesJson;
 var imageIdSelected = null;
 
-var contextMenuElement				= document.getElementById("contextMenu");
-var editMenuOptionElement 			= document.getElementById('editMenuOption');
-var imagesContainerElement 			= document.getElementById('imagesContainer');
+var contextMenuElement			= document.getElementById("contextMenu");
+var editMenuOptionElement 		= document.getElementById('editMenuOption');
+var imagesContainerElement 		= document.getElementById('imagesContainer');
 var deleteMenuOptionElement 		= document.getElementById('deleteMenuOption');
 var dialogueBoxCloseElement 		= document.getElementById('dialogueBoxClose');
 var addNewImageButtonElement		= document.getElementById('addNewImageButton');
 var addOrEditDialogueBoxElement 	= document.getElementById('addOrEditDialogueBoxId');
 var dialogueBoxSubmitButtonElement 	= document.getElementById('dialogueBoxSubmitButton');
-var dialogueBoxHeaderContentElement = document.getElementById('dialogueBoxHeaderContent');
+var dialogueBoxHeaderContentElement	= document.getElementById('dialogueBoxHeaderContent');
 
-var imageUrlElement 				= document.getElementById('imageUrlId');
-var imageNameElement 				= document.getElementById('imageNameId');
-var imageInfoElement 				= document.getElementById('imageInfoId');
-var imageUploadedDateElement 		= document.getElementById('imageUploadedDateId');
+var imageUrlElement 		= document.getElementById('imageUrlId');
+var imageNameElement 		= document.getElementById('imageNameId');
+var imageInfoElement		= document.getElementById('imageInfoId');
+var imageUploadedDateElement	= document.getElementById('imageUploadedDateId');
 
 getJsonObjectLocally = function() {
 	return JSON.parse(localStorage.getItem('imagesJson'));
@@ -175,19 +175,19 @@ validateDialogueBoxFields = function() {
 	if (dialogueBoxHeaderContentElement.innerHTML == "Edit") {
 		imagesJson[0].images.forEach( function(obj) {
 			if (obj.imageId == imageIdSelected) {
-				obj.url 		= imageUrlElement.value;
-				obj.name 		= imageNameElement.value;
-				obj.info 		= imageInfoElement.value;
+				obj.url 	= imageUrlElement.value;
+				obj.name 	= imageNameElement.value;
+				obj.info 	= imageInfoElement.value;
 				obj.upload_date = imageUploadedDateElement.value;
 				addOrEditDialogueBoxElement.style.display = "none";
 				storeJsonObjectLocally();
 			}
 		});	
 	} else if (dialogueBoxHeaderContentElement.innerHTML == "Add New Image") {
-		var newImageId 			= getNewImageId();
-		var newImageUrl 		= imageUrlElement.value;
-		var newImageName 		= imageNameElement.value;
-		var newImageInfo 		= imageInfoElement.value;
+		var newImageId 		= getNewImageId();
+		var newImageUrl 	= imageUrlElement.value;
+		var newImageName 	= imageNameElement.value;
+		var newImageInfo 	= imageInfoElement.value;
 		var newImageUploadDate 	= imageUploadedDateElement.value;
 		
 		imagesJson[0].images.push({"imageId":newImageId, "url": newImageUrl, "name":newImageName, "info":newImageInfo, "upload_date": newImageUploadDate});
