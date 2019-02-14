@@ -129,7 +129,9 @@ imagesContainerElement.addEventListener('contextmenu', function (event) {
 		contextMenuElement.style.top = (event.pageY - 10)+"px";
 	}
 }, false);
-
+// document.querySelectorAll("imagesContainers_image").onmouseover = function(){
+	
+// }
 deleteMenuOptionElement.onclick = function() {
 	var index=0;
 	hideContextMenu();
